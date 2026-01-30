@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import ParticleBackground from './components/ParticleBackground';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -9,6 +10,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <ParticleBackground />
         <Navbar />
         <main>
           <Routes>

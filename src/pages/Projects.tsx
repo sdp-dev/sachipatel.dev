@@ -73,7 +73,7 @@ const Projects = () => {
             <span className="mono">/&gt;</span>
           </h1>
           <p className="projects-subtitle">
-            a selection of things i've built
+            some things i've built
           </p>
         </motion.div>
 

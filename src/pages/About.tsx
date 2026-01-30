@@ -46,77 +46,46 @@ const About = () => {
           </h1>
         </motion.div>
 
-        <div className="about-content">
-          <motion.div
-            className="about-image-container"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="about-image">
-              <img
-                src="/images/profile.jpg"
-                alt="Sachi"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                  (e.target as HTMLImageElement).parentElement!.classList.add('placeholder');
-                }}
-              />
-              <div className="image-placeholder">
-                <span className="mono">{'<img />'}</span>
-              </div>
-            </div>
-            <div className="about-social">
-              <SocialLinks size="large" showLabels />
-            </div>
-          </motion.div>
+        <motion.div
+          className="about-content"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="about-section">
+            <h2>who i am</h2>
+            <p>
+              i'm <span className="highlight">Sachi</span>, a CS & Economics student at{' '}
+              <span className="highlight">Barnard College of Columbia University</span>.
+              i build full-stack applications, work on ML/NLP research, and care about
+              writing clean, efficient code (and documentation!) that solves real problems.
+            </p>
+          </div>
 
-          <motion.div
-            className="about-text"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <div className="about-section">
-              <h2>who i am</h2>
-              <p>
-                i'm <span className="highlight">sachi</span>, a CS student at{' '}
-                <span className="highlight">Barnard College of Columbia University</span>.
-                i build full-stack applications, work on ML/NLP research, and care about
-                writing clean, efficient code that solves real problems.
-              </p>
-            </div>
+          <div className="about-section">
+            <h2>what i do</h2>
+            <p>
+              my work spans software engineering, machine learning, and data pipelines.
+              i've built cost-optimization tools at DTCC, published research on prediction
+              markets, developed NLP pipelines for ESG analysis, and trained classifiers
+              for speech processing. i also mentor 120+ students as a Senior Computing Fellow 
+              and work part-time as a high school debate coach.
+            </p>
+          </div>
 
-            <div className="about-section">
-              <h2>what i do</h2>
-              <p>
-                my work spans software engineering, machine learning, and data pipelines.
-                i've built cost-optimization tools at DTCC, published research on prediction
-                markets, developed NLP pipelines for ESG analysis, and trained classifiers
-                for speech processing. i also mentor 120+ students as a Senior Computing Fellow.
-              </p>
-            </div>
+          <div className="about-section">
+            <h2>beyond code</h2>
+            <p>
+              when i'm not coding, i'm probably djing, curating spotify playlists, hunting for
+              new coffee/matcha spots, scrolling on beli for restaurant recs, or looking at
+              pictures of corgis.
+            </p>
+          </div>
 
-            <div className="about-section">
-              <h2>beyond code</h2>
-              <p>
-                when i'm not coding, i'm probably djing, hunting for new coffee or matcha spots,
-                scrolling beli for restaurant recs, or looking at pictures of corgis.
-              </p>
-            </div>
-
-            <motion.div
-              className="about-cta"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-            >
-              <a href="/projects" className="btn btn-primary">
-                view my work
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
+          <div className="about-social">
+            <SocialLinks size="large" showLabels />
+          </div>
+        </motion.div>
 
         <motion.div
           className="experience-section"

@@ -14,25 +14,25 @@ const interests: Interest[] = [
   {
     icon: FaHeadphones,
     title: 'dj',
-    detail: 'part-time dj, curating vibes & beats',
+    detail: 'part-time dj in nyc, curating for south asian functions',
     color: '#6b8cae',
   },
   {
     icon: FaCoffee,
     title: 'caffeine',
-    detail: 'coffee & matcha enthusiast',
+    detail: 'coffee (oatmilk) & matcha enthusiast',
     color: '#7dab8f',
   },
   {
     icon: FaDog,
     title: 'corgis',
-    detail: 'certified corgi lover',
+    detail: 'certified corgi lover (and future owner!)',
     color: '#c9a0b8',
   },
   {
     icon: FaUtensils,
     title: 'foodie',
-    detail: 'avid beli user, always hunting new spots',
+    detail: 'avid beli user, always reviewing & hunting new spots',
     color: '#d4c094',
   },
 ];
