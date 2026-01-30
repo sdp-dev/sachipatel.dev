@@ -1,0 +1,148 @@
+.projects {
+  min-height: 100vh;
+  padding: 8rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects .container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+}
+
+.projects-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* Scroll Wrapper */
+.projects-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.projects-scroll {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+
+.projects-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.projects-scroll:active {
+  cursor: grabbing;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+  position: absolute;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  transform: scale(1.1);
+}
+
+.scroll-left {
+  left: 1rem;
+}
+
+.scroll-right {
+  right: 1rem;
+}
+
+/* Instruction */
+.projects-instruction {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+.projects-instruction .accent {
+  color: var(--accent-blue);
+}
+
+/* Gradient overlays */
+.projects-wrapper::before,
+.projects-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.projects-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.projects-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scroll-btn {
+    display: none;
+  }
+
+  .projects-scroll {
+    padding: 1rem;
+  }
+
+  .projects-wrapper::before,
+  .projects-wrapper::after {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 6rem 0 3rem;
+  }
+
+  .projects-scroll {
+    gap: 1rem;
+  }
+
+  .project-card {
+    flex: 0 0 300px;
+  }
+}
