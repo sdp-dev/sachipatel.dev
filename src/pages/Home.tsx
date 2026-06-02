@@ -22,14 +22,15 @@ const Home = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="hero-name">
-                hey, i'm <span className="highlight-name">sachi</span>!
+                Hey, I'm <span className="highlight-name">Sachi</span>!
               </h1>
               <p className="hero-subtitle">
-                cs & econ @ <span className="highlight">barnard</span>, columbia
+                CS & Econ @ <span className="highlight">Barnard</span>/Columbia ('27)
               </p>
-              <p className="hero-tagline">
-                building cool stuff that matters!
-              </p>
+              <ul className="hero-tagline">
+                <li>Incoming Engineering Summer Analyst @ <span className="highlight-name">Goldman Sachs</span></li>
+                <li>Pursuing 4+1 MS CS @ <span className="highlight-name">Columbia</span> ('28)</li>
+              </ul>
             </motion.div>
 
             <motion.div

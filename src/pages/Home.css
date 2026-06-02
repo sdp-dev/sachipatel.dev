@@ -56,10 +56,33 @@
   font-weight: 500;
 }
 
+
 .hero-tagline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
   font-size: 1.3rem;
   color: var(--text-muted);
   margin-top: 0.5rem;
+}
+
+.hero-tagline li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.hero-tagline li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--accent-blue);
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-weight: 600;
+}
+
+.hero-tagline .highlight-name {
+  color: var(--accent-blue);
 }
 
 /* Skills in hero */

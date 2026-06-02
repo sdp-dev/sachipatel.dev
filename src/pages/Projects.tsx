@@ -6,6 +6,19 @@ import './Projects.css';
 const projects: Project[] = [
   {
     id: 1,
+    name: 'RAG-Powered Codebase Assistant',
+    description: 'Intelligent assistant that ingests GitHub repos and answers questions via natural language queries.',
+    category: 'ML / NLP',
+    bullets: [
+      'Built RAG assistant that ingests GitHub repos, parses Python code with tree-sitter, answers questions via natural language queries',
+      'Implemented semantic search using sentence-transformers/FAISS for efficient code retrieval',
+      'Integrated LangChain + Ollama for conversational UI',
+    ],
+    technologies: ['Python', 'LangChain', 'FAISS', 'tree-sitter', 'Ollama', 'sentence-transformers'],
+    github: 'https://github.com/sdp-dev',
+  },
+  {
+    id: 2,
     name: 'LLM Factuality Evaluation',
     description: 'Benchmarking factual consistency of open-source LLMs on medical literature summarization.',
     category: 'ML / NLP',
@@ -18,7 +31,7 @@ const projects: Project[] = [
     github: 'https://github.com/sdp-dev',
   },
   {
-    id: 2,
+    id: 3,
     name: 'Restaurant Reservation System',
     description: 'Full-stack booking platform with real-time availability and secure authentication.',
     category: 'Full Stack',
@@ -31,7 +44,7 @@ const projects: Project[] = [
     github: 'https://github.com/sdp-dev',
   },
   {
-    id: 3,
+    id: 4,
     name: 'HTTP Web Server',
     description: 'Low-level HTTP server implementation handling concurrent requests and static file serving.',
     category: 'Systems',

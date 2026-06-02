@@ -10,6 +10,8 @@ const Navbar = () => {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/projects', label: 'Projects' },
+    { path: '/photos', label: 'Photos' },
+    { path: '/resume.pdf', label: 'Resume', external: true },
   ];
 
   return (
@@ -39,13 +41,24 @@ const Navbar = () => {
         <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
           {navItems.map((item) => (
             <li key={item.path}>
-              <NavLink
-                to={item.path}
-                className={({ isActive }) => isActive ? 'active' : ''}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </NavLink>
+              {item.external ? (
+                <a
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) => isActive ? 'active' : ''}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </NavLink>
+              )}
             </li>
           ))}
         </ul>
