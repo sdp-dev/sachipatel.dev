@@ -28,7 +28,7 @@ const Home = () => {
                 CS & Econ @ <span className="highlight">Barnard</span>/Columbia ('27)
               </p>
               <ul className="hero-tagline">
-                <li>Incoming Engineering Summer Analyst @ <span className="highlight-name">Goldman Sachs</span></li>
+                <li>Engineering Summer Analyst @ <span className="highlight-name">Goldman Sachs</span></li>
                 <li>Pursuing 4+1 MS CS @ <span className="highlight-name">Columbia</span> ('28)</li>
               </ul>
             </motion.div>
