@@ -8,7 +8,7 @@ const experiences = [
     role: 'Summer Analyst, Data Engineering',
     company: 'Goldman Sachs',
     period: 'Jun 2026 – Aug 2026',
-    description: 'Incoming Summer Analyst on the Client Data Engineering team.',
+    description: 'Current Summer Analyst on the Data Engineering team.',
     logo: '/images/logos/goldman.png',
   },
   {
@@ -81,7 +81,7 @@ const About = () => {
               I've built cost-optimization tools at DTCC, published research on prediction
               markets, developed NLP pipelines for ESG analysis, and trained classifiers
               for speech processing. This summer I'm joining <span className="highlight-name">Goldman Sachs</span> as
-              an Engineering Analyst in the Client Data Engineering division. I'm actively looking for <span className="highlight">2028 summer internships</span> in
+              a Summer Analyst in the Data Engineering division on the Data & AI Solutions team. I'm actively looking for <span className="highlight">2028 summer internships</span> in
               AI/ML and SWE roles.
             </p>
           </div>
