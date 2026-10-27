@@ -70,7 +70,12 @@ const Photos = () => {
                 transition={{ duration: 0.4, delay: (i % 9) * 0.05 }}
                 onClick={() => setSelected(i)}
               >
-                <img src={src} alt={`Photo ${i + 1}`} loading="lazy" />
+                <img
+                  src={src}
+                  alt={`Photo ${i + 1}`}
+                  loading="lazy"
+                  onLoad={(e) => e.currentTarget.classList.add('loaded')}
+                />
                 <div className="photo-overlay" />
               </motion.div>
             ))}
