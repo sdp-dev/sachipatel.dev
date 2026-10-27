@@ -42,7 +42,7 @@
 }
 
 .hero-name .highlight-name {
-  color: var(--accent-blue);
+  color: var(--accent);
 }
 
 .hero-subtitle {
@@ -52,7 +52,7 @@
 }
 
 .hero-subtitle .highlight {
-  color: var(--accent-blue);
+  color: var(--accent);
   font-weight: 500;
 }
 
@@ -76,13 +76,13 @@
   content: '>';
   position: absolute;
   left: 0;
-  color: var(--accent-blue);
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: var(--accent);
+  font-family: var(--font-mono);
   font-weight: 600;
 }
 
 .hero-tagline .highlight-name {
-  color: var(--accent-blue);
+  color: var(--accent);
 }
 
 /* Skills in hero */
@@ -100,7 +100,7 @@
 
 .skill-label {
   font-size: 0.75rem;
-  color: var(--accent-blue);
+  color: var(--accent);
   font-weight: 600;
   min-width: 100px;
   padding-top: 0.3rem;
@@ -142,8 +142,8 @@
   height: 380px;
   object-fit: cover;
   border-radius: 20px;
-  border: 2px solid var(--border-color);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 0 6px var(--bg-secondary), 0 0 0 7px var(--border-color), 0 20px 50px var(--shadow);
 }
 
 .hero-social {

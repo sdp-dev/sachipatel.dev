@@ -14,7 +14,42 @@
 }
 
 .page-title .mono {
-  color: var(--accent-blue);
+  color: var(--accent);
+}
+
+/* View toggle */
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  width: fit-content;
+  margin: -2rem auto 2.5rem;
+  padding: 0.25rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+}
+
+.view-toggle-btn {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.view-toggle-btn:hover {
+  color: var(--text-primary);
+}
+
+.view-toggle-btn.active {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 0 1px var(--accent-dim);
 }
 
 /* About Content - Single Column */
@@ -29,7 +64,7 @@
 .about-section h2 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--accent-blue);
+  color: var(--accent);
   margin-bottom: 1rem;
 }
 
@@ -70,7 +105,7 @@
 }
 
 .experience-section .section-title .mono {
-  color: var(--accent-blue);
+  color: var(--accent);
 }
 
 .experience-grid {
@@ -97,7 +132,7 @@
   width: auto;
   max-width: 80px;
   display: block;
-  filter: brightness(0) invert(1);
+  filter: var(--logo-filter);
   opacity: 0.65;
 }
 
@@ -127,7 +162,7 @@
 
 .exp-company {
   font-size: 1rem;
-  color: var(--accent-blue);
+  color: var(--accent);
   font-weight: 500;
 }
 

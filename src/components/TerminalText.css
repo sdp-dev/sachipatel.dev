@@ -67,7 +67,7 @@
 }
 
 .terminal-cursor {
-  color: var(--accent-blue);
+  color: var(--accent);
   animation: blink 1s infinite;
   font-weight: 100;
 }

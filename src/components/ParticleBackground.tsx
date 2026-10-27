@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import type { ISourceOptions } from '@tsparticles/engine';
+import { useTheme } from '../theme';
 
 const ParticleBackground = () => {
   const [init, setInit] = useState(false);
+  const { theme } = useTheme();
+  const color = theme === 'light' ? '#7a6556' : '#c4ad97';
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -42,10 +45,10 @@ const ParticleBackground = () => {
     },
     particles: {
       color: {
-        value: '#6b8cae',
+        value: color,
       },
       links: {
-        color: '#6b8cae',
+        color,
         distance: 150,
         enable: true,
         opacity: 0.15,
@@ -88,6 +91,7 @@ const ParticleBackground = () => {
 
   return (
     <Particles
+      key={theme}
       id="tsparticles"
       options={options}
       style={{

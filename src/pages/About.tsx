@@ -1,47 +1,35 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import SocialLinks from '../components/SocialLinks';
+import RichText from '../components/RichText';
+import AboutTerminal from '../components/AboutTerminal';
+import { whoAmI, whatIDo, beyondCode, experiences } from '../data/about';
 import './About.css';
 
-const experiences = [
-  {
-    role: 'Summer Analyst, Data Engineering',
-    company: 'Goldman Sachs',
-    period: 'Jun 2026 – Aug 2026',
-    description: 'Building an end-to-end SRE telemetry pipeline aggregating metrics from on-premise (P3), ECS cloud, and platform tasks through OpenTelemetry into Prometheus, with Lakehouse schemas for capacity planning analytics and Grafana/Alertmanager dashboards for real-time operational alerting.',
-    logo: '/images/logos/goldman.png',
-  },
-  {
-    role: 'Software Engineering Intern',
-    company: 'Depository Trust & Clearing Corporation',
-    period: 'Jun 2025 – Aug 2025',
-    description: 'Built internal automation detecting idle EC2/EBS volumes across 25+ SYSIDs, driving $350K in cost savings. Developed MVP cost-savings dashboard integrating CloudAware and AWS Cost Explorer data.',
-    logo: '/images/logos/dtcc.png',
-  },
-  {
-    role: 'Research Assistant',
-    company: 'Rajiv Sethi Lab, Barnard College',
-    period: 'Jan 2024 – Present',
-    description: 'Scraped Polymarket probabilities across 41 electoral events. Implemented trading strategy simulations comparing forecasting models vs. market accuracy. Co-authored paper published in ACM CI \'25.',
-    logo: '/images/logos/barnard.png',
-  },
-  {
-    role: 'Research Assistant',
-    company: 'Martina Jasova Lab, Barnard College',
-    period: 'Jul 2024 – Dec 2024',
-    description: 'Built text extraction pipeline parsing 12K+ pages of bank reports. Integrated GPT-4o mini for ESG sentiment classification with batched inference and exponential backoff.',
-    logo: '/images/logos/barnard.png',
-  },
-  {
-    role: 'Research Assistant',
-    company: 'Spoken Language Processing, Columbia Engineering',
-    period: 'May 2024 – Aug 2024',
-    description: 'Automated extraction of 12 acoustic-prosodic features from 200+ audio files. Trained SVM and logistic regression classifiers to detect empathetic speech patterns.',
-    logo: '/images/logos/columbia.png',
-  },
-];
+type View = 'read' | 'terminal';
+
+const VIEW_KEY = 'about-view';
+
+const loadView = (): View => {
+  try {
+    return localStorage.getItem(VIEW_KEY) === 'read' ? 'read' : 'terminal';
+  } catch {
+    return 'terminal';
+  }
+};
 
 const About = () => {
+  const [view, setView] = useState<View>(loadView);
+
+  const changeView = (next: View) => {
+    setView(next);
+    try {
+      localStorage.setItem(VIEW_KEY, next);
+    } catch {
+      // Storage can be unavailable (private mode); the toggle still works for this visit.
+    }
+  };
+
   return (
     <div className="about">
       <div className="container">
@@ -53,47 +41,53 @@ const About = () => {
         >
           <h1 className="page-title">
             <span className="mono">&lt;</span>
-            about me
+            about
             <span className="mono">/&gt;</span>
           </h1>
         </motion.div>
 
+        <div className="view-toggle mono" role="tablist" aria-label="About view">
+          {(['terminal', 'read'] as View[]).map((option) => (
+            <button
+              key={option}
+              type="button"
+              role="tab"
+              aria-selected={view === option}
+              className={`view-toggle-btn${view === option ? ' active' : ''}`}
+              onClick={() => changeView(option)}
+            >
+              {option === 'terminal' ? '>_ terminal' : 'about.md'}
+            </button>
+          ))}
+        </div>
+
         <motion.div
+          key={view}
           className="about-content"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.4 }}
         >
-          <div className="about-section">
-            <h2>Who I am</h2>
-            <p>
-              I'm <span className="highlight">Sachi</span>, a CS & Economics student at{' '}
-              <span className="highlight">Barnard College of Columbia University</span>, pursuing a 4+1 MS in CS on an ML pathway.
-              I build full-stack applications, work on ML/NLP research, and care about
-              writing clean, efficient code (and documentation!) that solves real problems.
-            </p>
-          </div>
+          {view === 'terminal' ? (
+            <AboutTerminal onExit={() => changeView('read')} />
+          ) : (
+            <>
+              <div className="about-section">
+                <h2>Who I am</h2>
+                <p><RichText text={whoAmI} /></p>
+              </div>
 
-          <div className="about-section">
-            <h2>What I do</h2>
-            <p>
-              My work spans software engineering, machine learning, and data pipelines.
-              I've built cost-optimization tools at DTCC, published research on prediction
-              markets, developed NLP pipelines for ESG analysis, and trained classifiers
-              for speech processing. This summer I'm joining <span className="highlight-name">Goldman Sachs</span> as
-              a Summer Analyst in the Data Engineering division on the Data & AI Solutions team. I'm actively looking for <span className="highlight">2027 summer internships</span> in
-              AI/ML and SWE roles.
-            </p>
-          </div>
+              <div className="about-section">
+                <h2>What I do</h2>
+                <p><RichText text={whatIDo} /></p>
+              </div>
 
-          <div className="about-section">
-            <h2>Beyond code</h2>
-            <p>
-              When I'm not coding, I'm probably DJing, curating Spotify playlists, hunting for
-              new coffee/matcha spots, or scrolling on Beli for restaurant recs. I also shoot film-style
-              photography on my Fujifilm — check out some shots in the <Link to="/photos">photos</Link> tab.
-            </p>
-          </div>
+              <div className="about-section">
+                <h2>Beyond code</h2>
+                <p><RichText text={beyondCode} /></p>
+              </div>
+            </>
+          )}
 
           <div className="about-social">
             <SocialLinks size="large" showLabels />

@@ -42,7 +42,7 @@
 }
 
 .code-keyword {
-  color: var(--accent-blue);
+  color: var(--accent);
 }
 
 .code-string {
@@ -71,6 +71,6 @@
 }
 
 .typing-cursor {
-  color: var(--accent-blue);
+  color: var(--accent);
   animation: blink 1s infinite;
 }

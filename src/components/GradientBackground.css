@@ -19,7 +19,7 @@
 .orb-1 {
   width: 600px;
   height: 600px;
-  background: var(--accent-blue);
+  background: var(--accent);
   top: -200px;
   right: -100px;
 }
@@ -27,7 +27,7 @@
 .orb-2 {
   width: 500px;
   height: 500px;
-  background: var(--accent-navy);
+  background: var(--accent-deep);
   bottom: -150px;
   left: -100px;
 }
@@ -35,7 +35,7 @@
 .orb-3 {
   width: 400px;
   height: 400px;
-  background: var(--accent-blue-dim);
+  background: var(--accent-dim);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

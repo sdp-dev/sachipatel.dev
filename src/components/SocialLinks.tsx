@@ -1,32 +1,11 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaSpotify } from 'react-icons/fa';
+import { socials } from '../data/socials';
 import './SocialLinks.css';
 
 interface SocialLinksProps {
   size?: 'small' | 'large';
   showLabels?: boolean;
 }
-
-const socials = [
-  {
-    name: 'GitHub',
-    icon: FaGithub,
-    url: 'https://github.com/sdp-dev',
-    color: '#6b8cae',
-  },
-  {
-    name: 'LinkedIn',
-    icon: FaLinkedin,
-    url: 'https://www.linkedin.com/in/sachipatell/',
-    color: '#4a6a8a',
-  },
-  {
-    name: 'Spotify',
-    icon: FaSpotify,
-    url: 'https://open.spotify.com/user/sachi16?si=84cf8590c42a45ec',
-    color: '#7dab8f',
-  },
-];
 
 const SocialLinks = ({ size = 'small', showLabels = false }: SocialLinksProps) => {
   return (

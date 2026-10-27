@@ -19,8 +19,8 @@
 .social-link:hover {
   border-color: var(--hover-color);
   color: var(--hover-color);
-  background: rgba(255, 255, 255, 0.03);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  background: var(--hover-tint);
+  box-shadow: 0 4px 20px var(--shadow);
 }
 
 .social-links.small .social-icon {
