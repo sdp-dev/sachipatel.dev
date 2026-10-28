@@ -3,6 +3,19 @@ import type { Project } from '../components/ProjectCard';
 export const projects: Project[] = [
   {
     id: 1,
+    name: 'Agentic Stock Prediction',
+    description: 'Multi-agent system that researches a stock like a small investment team and issues BUY / SELL / HOLD calls.',
+    category: 'ML / Agents',
+    bullets: [
+      'Built Google ADK workflow where technical, market, and fundamental analyst agents run in parallel before a portfolio-manager agent issues a structured recommendation',
+      'Prevented lookahead bias by pinning the analysis date in session state so tools only see point-in-time data',
+      'Wrote backtest harness scoring calls against realized returns vs. buy-and-hold and trend baselines, with confidence calibration',
+    ],
+    technologies: ['Python', 'Google ADK', 'Gemini', 'yfinance', 'Pydantic', 'pytest'],
+    github: 'https://github.com/sdp-dev/agentic-stock-prediction',
+  },
+  {
+    id: 2,
     name: 'RAG-Powered Codebase Assistant',
     description: 'Intelligent assistant that ingests GitHub repos and answers questions via natural language queries.',
     category: 'ML / NLP',
@@ -12,10 +25,10 @@ export const projects: Project[] = [
       'Integrated LangChain + Ollama for conversational UI',
     ],
     technologies: ['Python', 'LangChain', 'FAISS', 'tree-sitter', 'Ollama', 'sentence-transformers'],
-    github: 'https://github.com/sdp-dev',
+    github: 'https://github.com/sdp-dev/rag-codebase-assistant',
   },
   {
-    id: 2,
+    id: 3,
     name: 'LLM Factuality Evaluation',
     description: 'Benchmarking factual consistency of open-source LLMs on medical literature summarization.',
     category: 'ML / NLP',
@@ -25,10 +38,10 @@ export const projects: Project[] = [
       'Optimized inference for 8K-token documents; findings on weak factual grounding (<0.50 F1) published',
     ],
     technologies: ['Python', 'PyTorch', 'Hugging Face', 'BERTScore', 'FLAN-T5'],
-    github: 'https://github.com/sdp-dev',
+    github: 'https://github.com/sdp-dev/llm-factuality-eval',
   },
   {
-    id: 3,
+    id: 4,
     name: 'Restaurant Reservation System',
     description: 'Full-stack booking platform with real-time availability and secure authentication.',
     category: 'Full Stack',
@@ -41,7 +54,7 @@ export const projects: Project[] = [
     github: 'https://github.com/sdp-dev',
   },
   {
-    id: 4,
+    id: 5,
     name: 'HTTP Web Server',
     description: 'Low-level HTTP server implementation handling concurrent requests and static file serving.',
     category: 'Systems',
