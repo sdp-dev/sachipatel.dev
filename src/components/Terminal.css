@@ -1,0 +1,163 @@
+.tty {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--term-bg);
+  border: 1px solid var(--border-color);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.tty-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.tty-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tty-dots {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.tty-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--term-dot);
+}
+
+.tty-dots span.on {
+  background: var(--accent);
+}
+
+.tty-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1rem 1.1rem;
+  cursor: text;
+}
+
+.tty-line {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.tty-sys {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.tty-err {
+  color: var(--term-err);
+}
+
+.tty-dim {
+  color: var(--text-muted);
+}
+
+.tty-prompt {
+  display: inline-flex;
+  gap: 0.15rem;
+  margin-right: 0.4rem;
+  white-space: nowrap;
+}
+
+.tty-user {
+  color: var(--accent);
+}
+
+.tty-path {
+  color: var(--term-sand);
+}
+
+.tty-dir {
+  color: var(--term-sand);
+}
+
+.tty-ls {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+}
+
+.tty-body a {
+  color: var(--term-sand);
+}
+
+.tty-body a:hover {
+  text-decoration: underline;
+}
+
+.tty-cmd {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-dim);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.tty-cmd:hover,
+.tty-cmd:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.tty-input-row {
+  display: flex;
+  align-items: center;
+}
+
+.tty-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  /* 16px keeps iOS Safari from zooming in when the input is focused */
+  font-size: max(16px, 1em);
+  color: var(--text-primary);
+  caret-color: var(--accent);
+}
+
+@media (pointer: fine) {
+  .tty-input {
+    font-size: inherit;
+  }
+}
+
+.tty-shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  padding: 0.55rem 1.1rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}

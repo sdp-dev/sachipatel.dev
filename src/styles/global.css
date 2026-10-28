@@ -9,17 +9,16 @@
   --text-secondary: #c7beb4;
   --text-muted: #857b72;
   --border-color: #2f2a26;
-  --terminal-green: #bcc79a;
   --code-pink: #c4ad97;
   --code-yellow: #c7beb4;
   --code-cyan: #857b72;
   --nav-bg: rgba(17, 16, 15, 0.85);
   --shadow: rgba(0, 0, 0, 0.35);
   --hover-tint: rgba(255, 255, 255, 0.03);
-  --logo-filter: brightness(0) invert(1);
   --term-bg: #14120f;
   --term-dot: #3d3732;
   --term-sand: #e6cdb0;
+  --term-err: #d98b73;
   color-scheme: dark;
   --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Fira Code', 'SF Mono', Consolas, monospace;
@@ -36,17 +35,16 @@
   --text-secondary: #5a514a;
   --text-muted: #8a8077;
   --border-color: #d3c9bd;
-  --terminal-green: #5f6b47;
   --code-pink: #7a6556;
   --code-yellow: #4f4842;
   --code-cyan: #8a8077;
   --nav-bg: rgba(233, 228, 220, 0.88);
   --shadow: rgba(60, 45, 35, 0.12);
   --hover-tint: rgba(0, 0, 0, 0.03);
-  --logo-filter: brightness(0);
   --term-bg: #ece6de;
   --term-dot: #c9bfb3;
   --term-sand: #8a6440;
+  --term-err: #a44a2e;
   color-scheme: light;
 }
 
@@ -58,6 +56,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg-primary);
 }
 
 body {
@@ -112,136 +111,42 @@ a:hover {
   padding: 0 2rem;
 }
 
-/* Section spacing */
-.section {
-  padding: 6rem 0;
-}
-
-/* Glow effect */
-.glow {
-  text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 30px var(--accent);
-}
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Button styles */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-  color: white;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(196, 173, 151, 0.3);
-}
-
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-}
-
-.btn-outline:hover {
-  border-color: var(--accent);
-  background: rgba(196, 173, 151, 0.1);
-}
-
-/* Card styles */
-.card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  border-color: var(--accent-dim);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px var(--shadow);
-}
-
-/* Tag/label styles */
-.tag {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
-.tag-blue {
-  background: rgba(196, 173, 151, 0.1);
-  border-color: var(--accent-dim);
-  color: var(--accent);
-}
-
-.tag-navy {
-  background: rgba(30, 58, 95, 0.3);
-  border-color: var(--accent-deep);
-  color: var(--accent);
-}
-
-/* Animations */
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
   }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.highlight {
+  color: var(--accent);
+  font-weight: 600;
 }
 
-.animate-fade-in {
-  animation: fadeInUp 0.6s ease forwards;
+.accent {
+  color: var(--accent);
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+::selection {
+  background: rgba(196, 173, 151, 0.3);
 }
 
-/* Page transitions */
-.page-enter {
-  opacity: 0;
-  transform: translateY(10px);
+.app {
+  position: relative;
+  min-height: 100vh;
 }
 
-.page-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.3s ease;
+/* Keep page content above the particle canvas */
+.app > main,
+.app > footer {
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
 }

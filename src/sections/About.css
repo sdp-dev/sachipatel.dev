@@ -1,0 +1,86 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.about-para + .about-para {
+  margin-top: 1.75rem;
+}
+
+.about-label {
+  margin-bottom: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.about-prose p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.fact-sheet {
+  padding: 1.35rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  font-size: 0.8rem;
+}
+
+.fact-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border-color);
+}
+
+.box-label {
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed var(--border-color);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.fact-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.fact-row dt {
+  color: var(--text-muted);
+}
+
+.fact-row dd {
+  text-align: right;
+  color: var(--text-primary);
+}
+
+.fact-currently {
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  white-space: pre;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .fact-sheet {
+    max-width: 420px;
+  }
+}

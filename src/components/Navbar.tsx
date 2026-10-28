@@ -1,84 +1,56 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { useTheme } from '../theme';
+import { SECTIONS, scrollToSection, type SectionId } from '../sections';
 import './Navbar.css';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar = ({ active }: { active: SectionId | null }) => {
   const { theme, toggleTheme } = useTheme();
 
-  const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/photos', label: 'Photos' },
-    { path: '/resume.pdf', label: 'Resume', external: true },
-  ];
-
   return (
-    <motion.nav
-      className="navbar"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="nav-container">
-        <NavLink to="/" className="nav-logo mono">
-          <span className="logo-bracket">&lt;</span>
-          sdp
-          <span className="logo-bracket">/&gt;</span>
-        </NavLink>
+    <nav className="nav mono">
+      <a
+        href="#"
+        className="nav-brand"
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToSection(null);
+        }}
+      >
+        <span className="accent">●</span> sachipatel.dev
+      </a>
 
-        <div className="nav-right">
-          <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
-            {navItems.map((item) => (
-              <li key={item.path}>
-                {item.external ? (
-                  <a
-                    href={item.path}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <NavLink
-                    to={item.path}
-                    className={({ isActive }) => isActive ? 'active' : ''}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                  </NavLink>
-                )}
-              </li>
-            ))}
-          </ul>
-
-          <button
-            type="button"
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      <div className="nav-links">
+        {SECTIONS.map((id) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className={active === id ? 'active' : undefined}
+            aria-current={active === id ? 'true' : undefined}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection(id);
+            }}
           >
-            {theme === 'dark' ? <FiSun /> : <FiMoon />}
-          </button>
-
-          <button
-            className={`nav-toggle ${isOpen ? 'active' : ''}`}
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle navigation"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
+            {id}
+          </a>
+        ))}
       </div>
-    </motion.nav>
+
+      <div className="nav-right">
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="nav-resume">
+          resume.pdf ↓
+        </a>
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        >
+          {theme === 'dark' ? <FiSun /> : <FiMoon />}
+        </button>
+      </div>
+    </nav>
   );
 };
 

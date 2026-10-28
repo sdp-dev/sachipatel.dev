@@ -1,0 +1,45 @@
+.section-block {
+  padding: 4rem 0;
+  border-top: 1px solid var(--border-color);
+  /* Leave room for the sticky nav when jumping here */
+  scroll-margin-top: 56px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.section-n {
+  color: var(--accent);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.section-rule {
+  flex: 1;
+  min-width: 2rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+@media (max-width: 860px) {
+  .section-block {
+    padding: 3rem 0;
+    scroll-margin-top: 88px;
+  }
+}

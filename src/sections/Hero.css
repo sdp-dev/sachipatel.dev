@@ -1,0 +1,104 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  padding: 4rem 0 3rem;
+}
+
+.hero-hello {
+  margin-bottom: 1.1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.hero-name {
+  font-size: clamp(3.25rem, 7vw, 5.5rem);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+}
+
+.hero-school {
+  max-width: 32rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.hero-meta {
+  margin-top: 1.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.hero-meta div {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.hero-meta dt {
+  width: 7.5rem;
+  flex-shrink: 0;
+}
+
+.hero-status {
+  color: var(--accent);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.term-btn {
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.term-btn:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.term-btn.primary {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.term-btn.primary:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+.hero-terminal {
+  height: 460px;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem 0 2.5rem;
+  }
+
+  .hero-terminal {
+    height: 380px;
+  }
+
+  .hero-meta dt {
+    width: 6.5rem;
+  }
+}

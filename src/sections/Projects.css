@@ -1,0 +1,130 @@
+.project-table {
+  border: 1px solid var(--border-color);
+}
+
+.project-head,
+.project-main {
+  display: grid;
+  grid-template-columns: 56px 1.3fr 0.7fr 2fr 56px;
+  gap: 1.25rem;
+}
+
+.project-head {
+  padding: 0.6rem 1.1rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.project-row {
+  transition: background 0.2s ease;
+}
+
+.project-row + .project-row {
+  border-top: 1px solid var(--border-color);
+}
+
+.project-row:hover {
+  background: var(--hover-tint);
+}
+
+.project-main {
+  padding: 1.25rem 1.1rem 0.9rem;
+  align-items: start;
+}
+
+.project-id {
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.project-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+
+.project-desc {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.project-kind {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.project-bullets li {
+  font-size: 0.85rem;
+}
+
+.project-year {
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.project-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 0 1.1rem 1.1rem calc(1.1rem + 56px + 1.25rem);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip {
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--border-color);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.project-link {
+  margin-left: auto;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .project-head {
+    display: none;
+  }
+
+  .project-main {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      'id name year'
+      'kind kind kind'
+      'bullets bullets bullets';
+    gap: 0.6rem 0.9rem;
+  }
+
+  .project-id { grid-area: id; }
+  .project-main > div { grid-area: name; }
+  .project-kind { grid-area: kind; }
+  .project-bullets { grid-area: bullets; }
+  .project-main > .project-year { grid-area: year; }
+
+  .project-foot {
+    padding-left: 1.1rem;
+  }
+
+  .project-link {
+    margin-left: 0;
+  }
+}

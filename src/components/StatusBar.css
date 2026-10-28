@@ -1,0 +1,34 @@
+.status-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.45rem 2rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.status-middle {
+  display: flex;
+  gap: 1.1rem;
+}
+
+.status-path {
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .status-bar {
+    padding: 0.45rem 16px;
+  }
+
+  .status-hide-sm {
+    display: none;
+  }
+}
