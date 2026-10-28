@@ -12,13 +12,13 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-color);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary);
 }
 
 .nav a {
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .nav a:hover {
@@ -31,7 +31,9 @@
 }
 
 .nav .nav-brand {
-  color: var(--text-secondary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .nav-links {
@@ -45,18 +47,25 @@
   transition: color 0.2s ease;
 }
 
+.nav .nav-links a:hover,
 .nav .nav-links a.active {
-  color: var(--accent);
+  color: var(--text-primary);
 }
 
-.nav-links a.active::after {
+.nav-links a::after {
   content: '';
   position: absolute;
   left: 0;
-  right: 0;
   bottom: -4px;
-  height: 1px;
+  width: 0;
+  height: 2px;
   background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
 }
 
 .nav-right {
@@ -75,9 +84,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   border: 1px solid var(--border-color);
+  border-radius: 50%;
   background: transparent;
   color: var(--text-secondary);
   font-size: 0.9rem;
@@ -103,7 +113,7 @@
   .nav-links {
     justify-content: space-between;
     gap: 1rem;
-    letter-spacing: 0.02em;
+    font-size: 0.88rem;
     overflow-x: auto;
     scrollbar-width: none;
     padding-bottom: 6px;

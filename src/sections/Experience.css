@@ -30,9 +30,10 @@
   position: absolute;
   left: calc(-2rem);
   top: 8px;
-  width: 9px;
-  height: 9px;
-  border: 1px solid var(--accent);
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--accent);
+  border-radius: 3px;
   background: var(--bg-primary);
 }
 
@@ -42,8 +43,7 @@
 
 .timeline-when {
   padding-top: 1.25rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
   line-height: 1.7;
   color: var(--text-muted);
 }
@@ -51,12 +51,15 @@
 .timeline-card {
   padding: 1.25rem 1.4rem;
   border: 1px solid var(--border-color);
+  border-radius: var(--radius);
   background: var(--bg-secondary);
-  transition: border-color 0.2s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-card:hover {
   border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--shadow);
 }
 
 .timeline-role {
@@ -66,8 +69,9 @@
 }
 
 .timeline-company {
-  margin: 0.2rem 0 0.9rem;
-  font-size: 0.8rem;
+  margin: 0.15rem 0 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--accent);
 }
 
@@ -78,7 +82,7 @@
 .bullets li {
   position: relative;
   padding-left: 1.25rem;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   line-height: 1.6;
   color: var(--text-secondary);
 }
@@ -88,10 +92,14 @@
 }
 
 .bullets li::before {
-  content: '▸';
+  content: '';
   position: absolute;
-  left: 0;
-  color: var(--accent);
+  left: 0.2rem;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 @media (max-width: 760px) {
@@ -119,7 +127,7 @@
 .timeline-group + .timeline-group {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px dashed var(--border-color);
+  border-top: 1px solid var(--border-color);
 }
 
 .timeline-group-head {
@@ -128,12 +136,13 @@
   justify-content: space-between;
   gap: 0.25rem 1rem;
   margin-bottom: 0.5rem;
-  font-size: 0.78rem;
+  font-size: 0.92rem;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
 .timeline-group-period {
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   color: var(--text-muted);
 }

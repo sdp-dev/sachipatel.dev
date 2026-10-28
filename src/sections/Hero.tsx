@@ -1,3 +1,5 @@
+import { FaLinkedin } from 'react-icons/fa';
+import { FiFileText } from 'react-icons/fi';
 import Terminal from '../components/Terminal';
 import RichText from '../components/RichText';
 import { profile } from '../data/about';
@@ -10,11 +12,10 @@ const linkedin = socials.find((s) => s.name === 'LinkedIn')!.url;
 const Hero = () => (
   <section className="hero">
     <div className="hero-intro">
-      <div className="hero-hello mono">// hello, world</div>
-      <h1 className="hero-name mono">
-        sachi
+      <h1 className="hero-name">
+        Sachi
         <br />
-        patel
+        Patel
       </h1>
       <p className="hero-school">
         <RichText text={profile.school} />
@@ -35,12 +36,12 @@ const Hero = () => (
         </div>
       </dl>
 
-      <div className="hero-actions mono">
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="term-btn primary">
-          ↓ resume.pdf
+      <div className="hero-actions">
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hero-btn primary">
+          <FiFileText /> Resume
         </a>
-        <a href={linkedin} target="_blank" rel="noopener noreferrer" className="term-btn">
-          say hi →
+        <a href={linkedin} target="_blank" rel="noopener noreferrer" className="hero-btn">
+          <FaLinkedin /> Say hi
         </a>
       </div>
     </div>

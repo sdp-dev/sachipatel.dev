@@ -2,6 +2,9 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-secondary);
 }
 
 .stack-col {
@@ -13,14 +16,20 @@
 }
 
 .stack-col ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
   list-style: none;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--text-secondary);
 }
 
-.stack-col li + li {
-  margin-top: 0.35rem;
+.stack-col li {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background: var(--bg-tertiary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
 }
 
 @media (max-width: 760px) {
@@ -39,4 +48,8 @@
   .stack-col:nth-child(n + 3) {
     border-top: 1px solid var(--border-color);
   }
+}
+
+.stack-col .box-label {
+  margin-bottom: 0.9rem;
 }

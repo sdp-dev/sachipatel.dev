@@ -2,12 +2,14 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-secondary);
 }
 
 .contact-cell {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
   padding: 1.5rem;
   color: var(--text-primary);
@@ -23,26 +25,43 @@
 }
 
 .contact-cell:hover {
-  background: var(--bg-secondary);
+  background: var(--bg-tertiary);
   color: var(--text-primary);
 }
 
+.contact-icon {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.contact-text {
+  flex: 1;
+  min-width: 0;
+}
+
 .contact-key {
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .contact-value {
-  margin-top: 0.35rem;
-  font-size: 0.95rem;
+  margin-top: 0.1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
   overflow-wrap: anywhere;
 }
 
 .contact-arrow {
-  font-size: 1.3rem;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-cell:hover .contact-arrow {
   color: var(--accent);
+  transform: translate(2px, -2px);
 }
 
 @media (max-width: 640px) {

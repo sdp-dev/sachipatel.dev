@@ -2,30 +2,46 @@
   position: sticky;
   bottom: 0;
   z-index: 50;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 1rem;
-  padding: 0.45rem 2rem;
+  padding: 0.5rem 2rem;
   border-top: 1px solid var(--border-color);
-  background: var(--bg-secondary);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 
-.status-middle {
-  display: flex;
-  gap: 1.1rem;
+.status-logo {
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
-.status-path {
-  color: var(--accent);
+.status-section {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.status-time {
+  justify-self: end;
 }
 
 @media (max-width: 640px) {
   .status-bar {
-    padding: 0.45rem 16px;
+    padding: 0.5rem 16px;
   }
 
   .status-hide-sm {

@@ -3,8 +3,11 @@
   flex-direction: column;
   height: 100%;
   min-height: 0;
+  overflow: hidden;
   background: var(--term-bg);
   border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 40px var(--shadow);
   font-size: 0.8rem;
   line-height: 1.6;
   color: var(--text-primary);
@@ -15,10 +18,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.6rem 0.9rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-tertiary);
   border-bottom: 1px solid var(--border-color);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
 
@@ -34,19 +37,15 @@
 
 .tty-dots {
   display: flex;
-  gap: 6px;
+  gap: 0.5rem;
   flex-shrink: 0;
 }
 
 .tty-dots span {
-  width: 9px;
-  height: 9px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--term-dot);
-}
-
-.tty-dots span.on {
-  background: var(--accent);
 }
 
 .tty-body {
@@ -60,12 +59,11 @@
 
 .tty-line {
   white-space: pre-wrap;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .tty-sys {
   color: var(--text-muted);
-  font-style: italic;
 }
 
 .tty-err {
@@ -158,6 +156,36 @@
   gap: 0.4rem 1.1rem;
   padding: 0.55rem 1.1rem;
   border-top: 1px solid var(--border-color);
-  font-size: 0.72rem;
+  background: var(--bg-tertiary);
+  font-size: 0.75rem;
   color: var(--text-muted);
+}
+
+.tty-row {
+  display: grid;
+  grid-template-columns: 9ch 1fr;
+  column-gap: 1.5ch;
+  padding-left: 2ch;
+}
+
+.tty-row.wide {
+  grid-template-columns: 14ch 1fr;
+}
+
+.tty-key {
+  color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .tty-row.wide {
+    grid-template-columns: 12ch 1fr;
+  }
+
+  .tty-row {
+    padding-left: 0;
+  }
+}
+
+.tty-key .tty-cmd {
+  color: var(--text-primary);
 }

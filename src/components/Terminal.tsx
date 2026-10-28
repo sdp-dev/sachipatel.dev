@@ -30,7 +30,7 @@ const DESTINATIONS: Record<string, SectionId | null> = {
 
 const HELP: [string, string][] = [
   ['ls', 'list sections'],
-  ['cd <section>', `jump to: ${SECTIONS.join(', ')}`],
+  ['cd <section>', 'jump to a section'],
   ['cat about.md', 'read about'],
   ['whois', 'contact info'],
   ['stack', 'tech stack'],
@@ -64,6 +64,14 @@ const Cmd = ({ run, cmd, children }: { run: (cmd: string) => void; cmd: string; 
   </button>
 );
 
+// Two-column row; long values wrap inside their own column instead of under the key.
+const Row = ({ k, children, wide }: { k: ReactNode; children: ReactNode; wide?: boolean }) => (
+  <span className={`tty-row${wide ? ' wide' : ''}`}>
+    <span className="tty-key">{k}</span>
+    <span>{children}</span>
+  </span>
+);
+
 const Prompt = () => (
   <span className="tty-prompt">
     <span className="tty-user">sachi@sdp</span>
@@ -78,7 +86,8 @@ const bootLines = (): Omit<Line, 'id'>[] => [
     kind: 'sys',
     value: `sachi@sdp · session started ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`,
   },
-  { kind: 'sys', value: "type 'help' for commands · 'cd projects' to jump · tab to complete" },
+  { kind: 'sys', value: "type 'help' to see commands" },
+  { kind: 'sys', value: 'tab completes · ↑/↓ for history' },
 ];
 
 const Terminal = ({ onNav }: { onNav: (id: SectionId | null) => void }) => {
@@ -109,12 +118,9 @@ const Terminal = ({ onNav }: { onNav: (id: SectionId | null) => void }) => {
         { value: 'available commands:' },
         ...HELP.map(([name, desc]) => ({
           value: (
-            <>
-              {'  '}
-              <Cmd run={run} cmd={name.includes('<') ? 'cd projects' : name}>{name}</Cmd>
-              {' '.repeat(Math.max(1, 17 - name.length))}
+            <Row wide k={<Cmd run={run} cmd={name.includes('<') ? 'cd projects' : name}>{name}</Cmd>}>
               <span className="tty-dim">{desc}</span>
-            </>
+            </Row>
           ),
         })),
       ];
@@ -140,19 +146,18 @@ const Terminal = ({ onNav }: { onNav: (id: SectionId | null) => void }) => {
     }
     if (cmd === 'whois') {
       return [
-        { value: '  name      Sachi Patel' },
+        { value: <Row k="name">Sachi Patel</Row> },
         ...socials.map((s) => ({
           value: (
-            <>
-              {`  ${s.name.toLowerCase().padEnd(10)}`}
+            <Row k={s.name.toLowerCase()}>
               <a href={s.url} target="_blank" rel="noopener noreferrer">{stripUrl(s.url)}</a>
-            </>
+            </Row>
           ),
         })),
       ];
     }
     if (cmd === 'stack') {
-      return stack.map((s) => ({ value: `  ${s.group.padEnd(16)} ${s.items.join(', ')}` }));
+      return stack.map((s) => ({ value: <Row wide k={s.group.toLowerCase().replace(/ \/ /g, '/')}>{s.items.join(', ')}</Row> }));
     }
     if (cmd === 'whoami') {
       return [{ value: 'sachi: CS & Econ @ Barnard/Columbia, builder of agentic systems and backend/cloud infra.' }];
@@ -195,7 +200,7 @@ const Terminal = ({ onNav }: { onNav: (id: SectionId | null) => void }) => {
         append([echo, { kind: 'sys', value: `navigating to ~/${target ?? ''}...` }]);
         setTimeout(() => onNav(target), 250);
       } else {
-        append([echo, { kind: 'err', value: `cd: ${dest}: no such directory. try: ${SECTIONS.join(', ')}` }]);
+        append([echo, { kind: 'err', value: <>cd: {dest}: no such directory. try <Cmd run={run} cmd="ls" /></> }]);
       }
       return;
     }
@@ -240,11 +245,10 @@ const Terminal = ({ onNav }: { onNav: (id: SectionId | null) => void }) => {
           <span className="tty-dots" aria-hidden="true">
             <span />
             <span />
-            <span className="on" />
+            <span />
           </span>
-          ~/sachi-portfolio — zsh
+          sachi@sdp: ~
         </span>
-        <span className="tty-dim">80×24</span>
       </div>
 
       <div className="tty-body" ref={bodyRef} onClick={focusInput}>

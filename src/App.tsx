@@ -71,7 +71,7 @@ function App() {
           <Stack />
           <Contact />
         </main>
-        <footer className="site-footer container mono">© {new Date().getFullYear()} sachi patel</footer>
+        <footer className="site-footer container">© {new Date().getFullYear()} Sachi Patel</footer>
         <StatusBar active={active} />
       </div>
     </ThemeProvider>

@@ -11,14 +11,26 @@ const StatusBar = ({ active }: { active: SectionId | null }) => {
   }, []);
 
   return (
-    <div className="status-bar mono">
-      <span>-- NORMAL --</span>
-      <span className="status-middle">
-        <span className="status-hide-sm">sachipatel.dev</span>
-        <span className="status-path">~/{active ?? ''}</span>
-        <span className="status-hide-sm">utf-8</span>
+    <div className="status-bar">
+      <span className="status-logo mono">
+        <span className="accent">&lt;</span>sdp<span className="accent">/&gt;</span>
       </span>
-      <span>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</span>
+      <span className="status-section">
+        <span className="status-dot" aria-hidden="true" />
+        {active ? active[0].toUpperCase() + active.slice(1) : 'Home'}
+      </span>
+      <span className="status-time">
+        <span className="status-hide-sm">New York · </span>
+        <span className="mono">
+          {time.toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+            timeZone: 'America/New_York',
+          })}
+        </span>
+      </span>
     </div>
   );
 };

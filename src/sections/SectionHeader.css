@@ -7,34 +7,33 @@
 
 .section-header {
   display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .section-n {
+  font-size: 0.8rem;
+  font-weight: 500;
   color: var(--accent);
-  font-size: 0.7rem;
-  letter-spacing: 0.16em;
 }
 
 .section-title {
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.9rem;
+  font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--text-primary);
 }
 
-.section-sub {
-  color: var(--text-muted);
-  font-size: 0.75rem;
+.section-title .mono {
+  color: var(--accent);
 }
 
 .section-rule {
   flex: 1;
   min-width: 2rem;
-  border-bottom: 1px dashed var(--border-color);
+  height: 1px;
+  background: var(--border-color);
 }
 
 @media (max-width: 860px) {

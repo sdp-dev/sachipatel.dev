@@ -20,6 +20,8 @@
   --term-sand: #e6cdb0;
   --term-err: #d98b73;
   color-scheme: dark;
+  --radius: 12px;
+  --radius-sm: 8px;
   --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Fira Code', 'SF Mono', Consolas, monospace;
 }
@@ -146,7 +148,6 @@ a:hover {
   padding-top: 2rem;
   padding-bottom: 2rem;
   border-top: 1px solid var(--border-color);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
+  font-size: 0.85rem;
   color: var(--text-muted);
 }

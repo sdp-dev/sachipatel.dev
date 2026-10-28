@@ -3,14 +3,16 @@ import './SectionHeader.css';
 interface SectionHeaderProps {
   n: string;
   title: string;
-  sub?: string;
 }
 
-const SectionHeader = ({ n, title, sub }: SectionHeaderProps) => (
-  <div className="section-header mono">
-    <span className="section-n">§ {n}</span>
-    <h2 className="section-title">{title}</h2>
-    {sub && <span className="section-sub">// {sub}</span>}
+const SectionHeader = ({ n, title }: SectionHeaderProps) => (
+  <div className="section-header">
+    <span className="section-n mono">{n}</span>
+    <h2 className="section-title">
+      <span className="mono">&lt;</span>
+      {title}
+      <span className="mono">/&gt;</span>
+    </h2>
     <span className="section-rule" aria-hidden="true" />
   </div>
 );

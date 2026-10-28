@@ -26,7 +26,7 @@ export const factSheet: [string, string][] = [
   ['status', 'open to 2027 internships'],
 ];
 
-export const currently = ['building multi-agent LLM systems', '@ Columbia Build Lab'];
+export const currently = ['building multi-agent LLM systems', 'at Columbia Build Lab.'];
 
 export interface Experience {
   role: string;

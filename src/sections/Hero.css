@@ -6,18 +6,11 @@
   padding: 4rem 0 3rem;
 }
 
-.hero-hello {
-  margin-bottom: 1.1rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-}
-
 .hero-name {
-  font-size: clamp(3.25rem, 7vw, 5.5rem);
-  font-weight: 600;
-  line-height: 0.92;
-  letter-spacing: -0.04em;
+  font-size: clamp(3.25rem, 7vw, 5.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
   color: var(--text-primary);
 }
 
@@ -31,8 +24,7 @@
 
 .hero-meta {
   margin-top: 1.75rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 
@@ -58,28 +50,34 @@
   margin-top: 2rem;
 }
 
-.term-btn {
-  padding: 0.75rem 1.25rem;
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.3rem;
   border: 1px solid var(--border-color);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--text-primary);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
-.term-btn:hover {
-  border-color: var(--text-primary);
+.hero-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-dim);
   color: var(--text-primary);
 }
 
-.term-btn.primary {
+.hero-btn.primary {
   border-color: var(--accent);
-  color: var(--accent);
-}
-
-.term-btn.primary:hover {
   background: var(--accent);
   color: var(--bg-primary);
+}
+
+.hero-btn.primary:hover {
+  color: var(--bg-primary);
+  box-shadow: 0 6px 20px var(--shadow);
 }
 
 .hero-terminal {

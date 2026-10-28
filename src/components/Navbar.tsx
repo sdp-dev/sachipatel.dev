@@ -7,7 +7,7 @@ const Navbar = ({ active }: { active: SectionId | null }) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <nav className="nav mono">
+    <nav className="nav">
       <a
         href="#"
         className="nav-brand"
@@ -16,7 +16,9 @@ const Navbar = ({ active }: { active: SectionId | null }) => {
           scrollToSection(null);
         }}
       >
-        <span className="accent">●</span> sachipatel.dev
+        <span className="mono">
+          <span className="accent">&lt;</span>sdp<span className="accent">/&gt;</span>
+        </span>
       </a>
 
       <div className="nav-links">
@@ -31,14 +33,14 @@ const Navbar = ({ active }: { active: SectionId | null }) => {
               scrollToSection(id);
             }}
           >
-            {id}
+            {id[0].toUpperCase() + id.slice(1)}
           </a>
         ))}
       </div>
 
       <div className="nav-right">
         <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="nav-resume">
-          resume.pdf ↓
+          Resume
         </a>
         <button
           type="button"
